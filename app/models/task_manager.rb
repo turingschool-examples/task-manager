@@ -11,7 +11,9 @@ class TaskManager
       database['tasks'] ||= []
       database['total'] ||= 0
       database['total'] += 1
-      database['tasks'] << { "id" => database['total'], "title" => task[:title], "description" => task[:description] }
+      database['tasks'] << { "id" => database['total'],
+                            "title" => task[:title],
+                            "description" => task[:description] }
     end
   end
 
@@ -22,7 +24,7 @@ class TaskManager
   end
 
   def self.all
-    raw_tasks.map {|data| Task.new(data) }
+    raw_tasks.map { |data| Task.new(data) }
   end
 
   def self.raw_task(id)
