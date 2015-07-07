@@ -15,8 +15,10 @@ body a {
   background: white;
   border: 10px solid black;
   width: 300px;
+  min-height: 200px;
   padding-bottom: 50px;
   margin: 0 auto;
+  padding: 10px;
 }
 
 .container h1 {
