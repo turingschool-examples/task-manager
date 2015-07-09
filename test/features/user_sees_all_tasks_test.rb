@@ -19,18 +19,17 @@ class UserSeesAllTasksTest < FeatureTest
   end
 
   def creates_task
-      visit("/")
-      click_link("New Task")
+    visit("/")
+    click_link("New Task")
 
-      fill_in("task-title", with: "new task")
-      fill_in("task-description", with: "new description")
-      assert_equal "/tasks/new", current_path
-      click_button("Create Task")
+    fill_in("task-title", with: "new task")
+    fill_in("task-description", with: "new description")
+    assert_equal "/tasks/new", current_path
+    click_button("Create Task")
   end
 
   def test_user_can_fill_in_task_form
     creates_task
-
     assert_equal "/tasks", current_path
 
     within(".container") do
@@ -59,5 +58,14 @@ class UserSeesAllTasksTest < FeatureTest
     click_button("delete")
 
     refute page.has_content?("new task")
+  end
+
+  def test_a_user_can_see_a_single_task
+    creates_task
+    assert_equal "/tasks", current_path
+
+    click_link("new task")
+    assert_equal "/tasks/1", current_path
+    assert page.has_content?("new task")
   end
 end
