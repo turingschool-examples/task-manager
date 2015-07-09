@@ -47,6 +47,3 @@ DEPENDENCIES
   pry
   shotgun
   sinatra
-
-BUNDLED WITH
-   1.10.3
