@@ -1,9 +1,10 @@
-require 'yaml/store'
+# require 'yaml/store'
 
 class TaskManager
   def self.database
     if ENV["TASK_MANAGER_ENV"] == 'test'
-      @database ||= YAML::Store.new("db/task_manager_test")
+      @database ||= Sequel.sqlite("db/task_manager_test.sqlite3")
+      # @database ||= YAML::Store.new("db/task_manager_test")
     else
       @database ||= YAML::Store.new("db/task_manager")
     end
