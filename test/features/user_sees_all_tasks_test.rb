@@ -38,7 +38,8 @@ class UserSeesAllTasksTest < FeatureTest
   end
 
   def test_user_can_edit_a_task
-    creates_task
+    task = TaskManager.create(title: "Yo", description: "Yo")
+    visit "/tasks"
 
     click_link("edit")
 
@@ -46,7 +47,7 @@ class UserSeesAllTasksTest < FeatureTest
     fill_in("task-description", with: "new description edited")
     click_button("Update Task")
 
-    assert_equal "/tasks/1", current_path
+    assert_equal "/tasks/#{task.id}", current_path
     within(".container") do
       assert page.has_content?("new task edited")
     end
@@ -61,11 +62,11 @@ class UserSeesAllTasksTest < FeatureTest
   end
 
   def test_a_user_can_see_a_single_task
-    creates_task
-    assert_equal "/tasks", current_path
+    task = TaskManager.create(title: "Yo", description: "Yo")
+    visit "/tasks"
 
-    click_link("new task")
-    assert_equal "/tasks/1", current_path
-    assert page.has_content?("new task")
+    click_link("Yo")
+    assert_equal "/tasks/#{task.id}", current_path
+    assert page.has_content?("Yo")
   end
 end
