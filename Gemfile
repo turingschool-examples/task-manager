@@ -1,8 +1,6 @@
 source "https://rubygems.org"
 
-gem "sinatra", require: "sinatra/base" #restricts to modular sinatra
+gem "sinatra", require: "sinatra/base"
 gem "shotgun"
 gem "minitest"
 gem "pry"
-gem "capybara"
-gem "launchy"

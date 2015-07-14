@@ -1,6 +1,6 @@
 ---
 tasks:
 - id: 1
-  title: 'yes no '
-  description: no yes
-total: 2
+  title: Learn Sinatra
+  description: It is fun
+total: 1
