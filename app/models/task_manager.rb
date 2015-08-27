@@ -1,23 +1,37 @@
 require 'yaml/store'
+require 'sequel'
 
 class TaskManager
   def self.database
     if ENV["TASK_MANAGER_ENV"] == 'test'
-      @database ||= YAML::Store.new("db/task_manager_test")
+      @database ||= Sequel.sqlite("db/task_manager_test.sqlite3")
+
+      # @database ||= YAML::Store.new("db/task_manager_test")
     else
-      @database ||= YAML::Store.new("db/task_manager")
+      @database ||= Sequel.sqlite("db/task_manager.sqlite3")
+      # @database ||= YAML::Store.new("db/task_manager")
+    end
+  end
+
+  def self.create_table
+    database.create_table :tasks do
+      primary_key :id
+      String :title
+      String :description
     end
   end
 
   def self.create(task)
-      database.transaction do
-        database['tasks'] ||= []
-        database['total'] ||= 0
-        database['total'] += 1
-        database['tasks'] << { "id" => database['total'],
-                              "title" => task[:title],
-                              "description" => task[:description] }
-    end
+    @tasks = database.from(:tasks)
+    @tasks.insert({ "title" => task[:title], "description" => task[:description] })
+      # database.transaction do
+        # database['tasks'] ||= []
+        # database['total'] ||= 0
+        # database['total'] += 1
+        # database['tasks'] << { "id" => database['total'],
+        #                       "title" => task[:title],
+        #                       "description" => task[:description] }
+    # end
   end
 
   def self.raw_tasks
