@@ -8,7 +8,7 @@ require 'tilt/erb'
 
 class Minitest::Test
   def teardown
-    TaskManager.delete_all
+    TaskManager.new.delete_all
   end
 end
 

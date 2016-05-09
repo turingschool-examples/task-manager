@@ -1,11 +1,8 @@
 class TaskManagerApp < Sinatra::Base
 
-  get '/' do
-    erb :dashboard
-  end
 
   get '/tasks' do
-    @tasks = TaskManager.all
+    @tasks = task_manager.all
     erb :index
   end
 
@@ -14,28 +11,36 @@ class TaskManagerApp < Sinatra::Base
   end
 
   post '/tasks' do
-    TaskManager.create(params[:task])
+    task_manager.create(params[:task])
     redirect '/tasks'
   end
 
+  get '/' do
+    erb :dashboard
+  end
+
   get '/tasks/:id' do |id|
-    @task = TaskManager.find(id.to_i)
+    @task = task_manager.find(id.to_i)
     erb :show
   end
 
   get '/tasks/:id/edit' do |id|
-    @task = TaskManager.find(id.to_i)
+    @task = task_manager.find(id.to_i)
     erb :edit
   end
 
   put '/tasks/:id' do |id|
-    TaskManager.update(id.to_i, params[:task])
+    task_manager.update(id.to_i, params[:task])
     redirect "tasks/#{id}"
   end
 
   delete '/tasks/:id' do |id|
-    TaskManager.delete(id.to_i)
+    task_manager.delete(id.to_i)
     redirect '/tasks'
+  end
+
+  def task_manager
+    TaskManager.new
   end
 
   not_found do
