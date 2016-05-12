@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="css/style.css">
+  <title>My Sinatra Application</title>
+</head>
+<body>
+  <div class="container">
+    <form action="/tasks" method="post">
+  <p>Enter a new task:</p>
+  <input type='text' name='task[title]'/><br/>
+  <textarea name='task[description]'></textarea><br/>
+  <input type='submit' value="create task"/>
+</form>
+
+  </div>
+</body>
+</html>
