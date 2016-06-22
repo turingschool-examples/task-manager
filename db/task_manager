@@ -3,4 +3,7 @@ tasks:
 - id: 1
   title: Learn Sinatra
   description: It is fun
-total: 1
+- id: 2
+  title: this one is new
+  description: "and newer\r\n"
+total: 2
