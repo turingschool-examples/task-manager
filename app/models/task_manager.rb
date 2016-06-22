@@ -13,7 +13,10 @@ class TaskManager
       database['tasks'] ||= []
       database['total'] ||= 0
       database['total'] += 1
-      database['tasks'] << { "id" => database['total'], "title" => task[:title], "description" => task[:description] }
+      database['tasks'] << { "id" => database['total'],
+                             "title" => task[:title],
+                             "description" => task[:description]
+                           }
     end
   end
 
