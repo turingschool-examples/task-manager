@@ -3,4 +3,19 @@ tasks:
 - id: 1
   title: 'yes no '
   description: no yes
-total: 2
+- id: 3
+  title: new task
+  description: new description
+- id: 4
+  title: new task
+  description: new description
+- id: 5
+  title: new task
+  description: new description
+- id: 6
+  title: new task
+  description: new description
+- id: 7
+  title: 'Hello '
+  description: "World\r\n"
+total: 7
