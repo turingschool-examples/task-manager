@@ -11,8 +11,6 @@ Dir.glob(File.join(APP_ROOT, 'app', 'controllers', '*.rb')).each { |file| requir
 Dir.glob(File.join(APP_ROOT, 'app', 'models', '*.rb')).each { |file| require file }
 
 
-
-
 class TaskManagerApp < Sinatra::Base
   set :root, APP_ROOT
   set :method_override, true
