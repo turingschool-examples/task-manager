@@ -6,3 +6,4 @@ gem "minitest"
 gem "pry"
 gem 'capybara'
 gem 'launchy'
+gem 'sqlite3'
