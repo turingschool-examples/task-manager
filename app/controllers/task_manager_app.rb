@@ -1,9 +1,18 @@
 require 'sqlite3'
 
 class TaskManagerApp < Sinatra::Base
-  
+
   get '/' do
     erb :dashboard
+  end
+
+  get '/capybara_practice' do
+    erb :capybara_practice
+  end
+
+  get '/practice_show' do
+    @task_info = params[:task]
+    erb :practice_show
   end
 
   get '/tasks' do

@@ -1,0 +1,40 @@
+<div id="practice">
+  <div class="content">
+    <p>
+      This p is nested within a div with the class .content<br>
+      <a href="/tasks">All Tasks</a>
+    </p>
+    <p>
+      this is another p nested within the .content div
+    </p>
+  </div>
+  <a class="task_link" href="/tasks/1">First Task</a>
+</div>
+
+
+
+
+<form action="/practice_show" method="post">
+  <input type="hidden" name="_method" value="GET">
+  <input type="text" name="task[title]">
+  <input type="text" name="task[description]">
+  <select name="task[difficulty]">
+    <option value="hard">hard</option>
+    <option value="medium">medium</option>
+    <option value="easy">easy</option>
+  </select><br>
+  <input type="checkbox" name="task[completed]" value="true">Complete<br>
+  <input type="checkbox" name="task[completed]" value="false">Incomplete<br>
+  <button type="submit" >submit</button><br>
+</form>
+
+
+
+
+<ul id="practice_list">
+  <li>First in list<a href="/tasks">All Tasks</a></li>
+  <li>Second in list</li>
+  <li>Third in list</li>
+  <li>Fourth in list</li>
+  <li>Fifth in list</li>
+</ul>
