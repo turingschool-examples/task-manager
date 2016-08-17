@@ -1,5 +1,3 @@
-require 'models/task_manager'
-
 class TaskManagerApp < Sinatra::Base
   set :root, File.join(__dir__, '..')
   set :method_override, true
